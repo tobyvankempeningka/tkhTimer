@@ -43,7 +43,13 @@ html, body {
         Nog
     </p>
 
-    <div id="timer" class="timer"></div>
+    <div class="timer">
+      <div class="timer" id="days"></div>
+      <div class="timer" id="hours"></div>
+      <div class="timer" id="minutes"></div>
+      <div class="timer" id="seconds"></div>
+    </div>
+    <div id="timer"></div>
 
     <p class="text">
         tot je deze producten kan kopen in onze Tweedekanshoek!
@@ -53,6 +59,10 @@ html, body {
 <script>
 const targetDate = new Date("2026-09-04T00:00:00").getTime();
 const timer = document.getElementById("timer");
+const daysDiv = document.getElementById("days");
+const hoursDiv = document.getElementById("hours");
+const minutesDiv = document.getElementById("minutes");
+const secondsDiv = document.getElementById("seconds");
 
 function updateTimer() {
     const distance = targetDate - Date.now();
@@ -68,6 +78,10 @@ function updateTimer() {
     const seconds = Math.floor(distance % 60000 / 1000);
 
     timer.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    daysDiv.textContent = `${days}d`;
+    hoursDiv.textContent = `${hours}h`;
+    minutesDiv.textContent = `${minutes}m`;
+    secondsDiv.textContent = `${seconds}s`;
 }
 
 updateTimer();
