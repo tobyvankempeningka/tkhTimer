@@ -28,10 +28,25 @@ html, body {
     margin: 10px 0;
 }
 
-.timer {
+.digits{
+    margin:10px 0;
+    display:flex;
+    flex-direction:row;
+}
+
+.digitCon{
+  display:block;
+  padding:20px;
+}
+
+.digit {
     font-size: 80px;
     font-weight: bold;
-    margin: 10px 0;
+}
+.digitText{
+  display:block;
+  margin:0;
+  font-size:40px;
 }
 </style>
 </head>
@@ -43,11 +58,11 @@ html, body {
         Nog
     </p>
 
-    <div class="timer">
-      <div class="timer" id="days"></div>
-      <div class="timer" id="hours"></div>
-      <div class="timer" id="minutes"></div>
-      <div class="timer" id="seconds"></div>
+    <div class="digits">
+      <div class="digitCon"><div class="digit" id="days"></div><p class="digitText">dagen</p></div>
+      <div class="digitCon"><div class="digit" id="hours"></div><p class="digitText">uur</p></div>
+      <div class="digitCon"><div class="digit" id="minutes"></div><p class="digitText">minuten</p></div>
+      <div class="digitCon"><div class="digit" id="seconds"></div><p class="digitText">seconden</p></div>
     </div>
     <div id="timer"></div>
 
@@ -77,7 +92,7 @@ function updateTimer() {
     const minutes = Math.floor(distance % 3600000 / 60000);
     const seconds = Math.floor(distance % 60000 / 1000);
 
-    timer.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    //timer.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     daysDiv.textContent = `${days}d`;
     hoursDiv.textContent = `${hours}h`;
     minutesDiv.textContent = `${minutes}m`;
