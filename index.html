@@ -56,6 +56,11 @@ html, body {
   font-weight:400;
   font-style:normal;
 }
+.bold{
+  font-family:"Noto IKEA";
+  font-weight:700;
+  font-style:normal;
+}
 </style>
 </head>
 
@@ -75,17 +80,29 @@ html, body {
     <div id="timer"></div>
 
     <p class="text">
-        tot je deze producten kan kopen in onze Tweedekanshoek!
+        tot het <span class="bold" id="targetDateTextDiv"></span>is en je deze producten kan kopen in onze Tweedekanshoek!
     </p>
 </div>
 
 <script>
-const targetDate = new Date("2026-09-04T00:00:00").getTime();
+
+const countTil = new Date("2026-09-04T00:00:00").getTime();
+
+const targetDate = countTil;
+const targetDateText = new Date(countTil);
+
+const dateDay = String(targetDateText.getDate()).padStart(2,'0');
+const dateMonth = String(targetDateText.getMonth() + 1).padStart(2,'0');
+const dateYear = targetDateText.getFullYear();
+const targetDateTextformatted = `${dateDay}-${dateMonth}-${dateYear}`;
+
 const timer = document.getElementById("timer");
 const daysDiv = document.getElementById("days");
 const hoursDiv = document.getElementById("hours");
 const minutesDiv = document.getElementById("minutes");
 const secondsDiv = document.getElementById("seconds");
+
+const targetDateTextDiv = document.getElementById("targetDateTextDiv");
 
 function updateTimer() {
     const distance = targetDate - Date.now();
@@ -105,6 +122,8 @@ function updateTimer() {
     hoursDiv.textContent = `${hours}`;
     minutesDiv.textContent = `${minutes}`;
     secondsDiv.textContent = `${seconds}`;
+    targetDateTextDiv.textContent = `${targetDateTextformatted} `;
+
 }
 
 updateTimer();
