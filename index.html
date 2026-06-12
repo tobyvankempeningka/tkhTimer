@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://www.ikea.com/global/assets/fonts/nl/fonts.12ac7b60.css">
 
 <style>
 html, body {
@@ -24,8 +25,9 @@ html, body {
 }
 
 .text {
-    font-size: 20px;
-    margin: 10px 0;
+  font-family:"Noto IKEA";
+  font-size: 20px;
+  margin: 10px 0;
 }
 
 .digits{
@@ -35,18 +37,24 @@ html, body {
 }
 
 .digitCon{
+  width:25%;
   display:block;
   padding:20px;
 }
 
 .digit {
     font-size: 80px;
-    font-weight: bold;
+    font-family:"Noto IKEA";
+    font-weight:700;
+    font-style:normal;
 }
 .digitText{
   display:block;
   margin:0;
   font-size:40px;
+  font-family:"Noto IKEA";
+  font-weight:400;
+  font-style:normal;
 }
 </style>
 </head>
@@ -93,10 +101,10 @@ function updateTimer() {
     const seconds = Math.floor(distance % 60000 / 1000);
 
     //timer.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    daysDiv.textContent = `${days}d`;
-    hoursDiv.textContent = `${hours}h`;
-    minutesDiv.textContent = `${minutes}m`;
-    secondsDiv.textContent = `${seconds}s`;
+    daysDiv.textContent = `${days}`;
+    hoursDiv.textContent = `${hours}`;
+    minutesDiv.textContent = `${minutes}`;
+    secondsDiv.textContent = `${seconds}`;
 }
 
 updateTimer();
